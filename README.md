@@ -22,10 +22,11 @@ Built without external frameworks or libraries for clarity and maintainability:
 
 ```text
 CSE-326/
-├── index.html   # Page markup, analyzer form, and career roles reference table
-├── style.css    # Styling, layout grids, progress bar, and responsive breakpoints
-├── script.js    # Skill comparison, score calculation, and result rendering
-└── README.md    # Project documentation
+├── index.html              # Semantic HTML5 markup, SEO/Open Graph tags, and form/table sections
+├── style.css               # Responsive CSS Grid/Flexbox layout, theme variables, and mobile breakpoints
+├── script.js               # Skill comparison, score calculation, and result rendering
+├── hero-illustration.jpg   # Hero section illustration
+└── README.md               # Project documentation
 ```
 
 ## How It Works

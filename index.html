@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Skill Gap Analyzer | CSE326 Project</title>
+  <title>Student Skill Gap Analyzer | Career Readiness Tool (CSE326)</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Compare your current technical skills against entry-level Frontend Developer, Backend Developer, and Data Analyst roles. Get an instant readiness score and free study links.">
+  <meta name="keywords" content="Student Skill Gap Analyzer, career readiness, skill gap analysis, frontend developer skills, backend developer skills, data analyst skills, CSE326 project">
+  <meta name="author" content="Sachin Singh">
+
+  <!-- Open Graph Meta Tags for Link Previews -->
+  <meta property="og:title" content="Student Skill Gap Analyzer | Career Readiness Tool">
+  <meta property="og:description" content="Find out how ready you are for Frontend, Backend, or Data Analyst roles and see which skills to learn next.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="hero-illustration.jpg">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,16 +36,29 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- 2-Column Hero Section -->
     <section id="home" class="hero-section">
-      <div class="container hero-content">
-        <p class="eyebrow">Career Readiness Tool</p>
-        <h1>Understand Where You Stand Before You Apply</h1>
-        <p class="hero-description">
-          Compare the technical skills you already know against core requirements for entry-level tech roles.
-          Find out your readiness score in seconds and see exactly which skills to learn next.
-        </p>
-        <a href="#analyzer" class="btn btn-primary">Start Analysis</a>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Career Readiness Tool</p>
+          <h1>Understand Where You Stand Before You Apply</h1>
+          <p class="hero-description">
+            Compare the technical skills you already know against core requirements for entry-level tech roles.
+            Find out your readiness score in seconds and see exactly which skills to learn next.
+          </p>
+          <a href="#analyzer" class="btn btn-primary">Start Analysis</a>
+        </div>
+
+        <div class="hero-media">
+          <img
+            src="hero-illustration.jpg"
+            alt="Student analyzing career skill gaps on a laptop with progress charts"
+            width="1024"
+            height="571"
+            fetchpriority="high"
+            class="hero-image"
+          >
+        </div>
       </div>
     </section>
 
@@ -154,11 +179,11 @@
 
             <div class="result-columns">
               <div class="skill-column">
-                <h4>Skills You Have</h4>
+                <h3>Skills You Have</h3>
                 <ul id="have-skills-list" class="tag-list"></ul>
               </div>
               <div class="skill-column">
-                <h4>Skills You Need to Learn</h4>
+                <h3>Skills You Need to Learn</h3>
                 <ul id="need-skills-list" class="tag-list"></ul>
               </div>
             </div>
