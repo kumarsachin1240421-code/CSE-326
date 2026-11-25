@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Skill Gap Analyzer | CSE326 Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header & Flexbox Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#home" class="brand-title">Student Skill Gap Analyzer</a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#analyzer">Analyzer</a></li>
+          <li><a href="#roles">Roles</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container hero-content">
+        <p class="eyebrow">Career Readiness Tool</p>
+        <h1>Understand Where You Stand Before You Apply</h1>
+        <p class="hero-description">
+          Compare the technical skills you already know against core requirements for entry-level tech roles.
+          Find out your readiness score in seconds and see exactly which skills to learn next.
+        </p>
+        <a href="#analyzer" class="btn btn-primary">Start Analysis</a>
+      </div>
+    </section>
+
+    <!-- Main Interactive Skill Gap Analyzer Section -->
+    <section id="analyzer" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Skill Gap Analyzer</h2>
+          <p>Enter your details, choose a target career role, and tick the skills you can comfortably use.</p>
+        </div>
+
+        <div class="analyzer-layout">
+          <!-- Input Form Card -->
+          <form id="analyzer-form" class="card">
+            <div class="form-top-grid">
+              <div class="form-group">
+                <label for="student-name">Student Name <span class="required-mark" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="student-name"
+                  name="student-name"
+                  autocomplete="name"
+                  placeholder="e.g., Aarav Sharma"
+                  required
+                >
+                <p class="error-msg">Error: Please enter your name before running the analysis.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="role-select">Target Career Role</label>
+                <select id="role-select" name="role">
+                  <option value="Frontend Developer">Frontend Developer</option>
+                  <option value="Backend Developer">Backend Developer</option>
+                  <option value="Data Analyst">Data Analyst</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="skills-fieldset">
+              <legend>Select Skills You Already Know</legend>
+              <div class="skills-grid">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-html" name="skills" value="HTML" class="skill-checkbox">
+                  <label for="skill-html">HTML</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-css" name="skills" value="CSS" class="skill-checkbox">
+                  <label for="skill-css">CSS</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-js" name="skills" value="JavaScript" class="skill-checkbox">
+                  <label for="skill-js">JavaScript</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-responsive" name="skills" value="Responsive Design" class="skill-checkbox">
+                  <label for="skill-responsive">Responsive Design</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-git" name="skills" value="Git" class="skill-checkbox">
+                  <label for="skill-git">Git</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-node" name="skills" value="Node.js" class="skill-checkbox">
+                  <label for="skill-node">Node.js</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-api" name="skills" value="REST APIs" class="skill-checkbox">
+                  <label for="skill-api">REST APIs</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-python" name="skills" value="Python" class="skill-checkbox">
+                  <label for="skill-python">Python</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-sql" name="skills" value="SQL" class="skill-checkbox">
+                  <label for="skill-sql">SQL</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-excel" name="skills" value="Excel" class="skill-checkbox">
+                  <label for="skill-excel">Excel</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-stats" name="skills" value="Statistics" class="skill-checkbox">
+                  <label for="skill-stats">Statistics</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill-viz" name="skills" value="Data Visualization" class="skill-checkbox">
+                  <label for="skill-viz">Data Visualization</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Analyze Gap</button>
+              <button type="reset" id="reset-btn" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+
+          <!-- Dynamic Result Card (Hidden until "Analyze Gap" is clicked) -->
+          <div id="result-card" class="card result-card" role="status" aria-live="polite" hidden>
+            <div class="result-header">
+              <div>
+                <p class="result-subtitle">Analysis Report for <strong id="result-name">Student</strong></p>
+                <h3 class="result-role-title">Target Role: <span id="result-role">Frontend Developer</span></h3>
+              </div>
+              <div class="score-badge">
+                <span class="score-label">Readiness Score</span>
+                <strong id="score-value" class="score-number">0%</strong>
+              </div>
+            </div>
+
+            <!-- Width-based CSS Progress Bar -->
+            <div class="progress-track" aria-hidden="true">
+              <div id="progress-bar-fill" class="progress-fill"></div>
+            </div>
+
+            <p id="feedback-message" class="feedback-box"></p>
+
+            <div class="result-columns">
+              <div class="skill-column">
+                <h4>Skills You Have</h4>
+                <ul id="have-skills-list" class="tag-list"></ul>
+              </div>
+              <div class="skill-column">
+                <h4>Skills You Need to Learn</h4>
+                <ul id="need-skills-list" class="tag-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Static Career Roles Reference Table -->
+    <section id="roles" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="roles-heading">Career Roles Reference Guide</h2>
+          <p>Core skills evaluated for each track along with trusted, free study platforms.</p>
+        </div>
+
+        <div tabindex="0" role="region" aria-labelledby="roles-heading" class="table-wrapper card">
+          <table class="roles-table">
+            <thead>
+              <tr>
+                <th scope="col">Career Role</th>
+                <th scope="col">Core Required Skills</th>
+                <th scope="col">Recommended Free Resources</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Frontend Developer</th>
+                <td>HTML, CSS, JavaScript, Responsive Design, Git</td>
+                <td>
+                  <a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a>,
+                  <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a>,
+                  <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">W3Schools HTML/CSS</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Backend Developer</th>
+                <td>Node.js, Python, SQL, REST APIs, Git</td>
+                <td>
+                  <a href="https://www.freecodecamp.org/learn/back-end-development-and-apis/" target="_blank" rel="noopener noreferrer">freeCodeCamp Backend</a>,
+                  <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener noreferrer">W3Schools SQL</a>,
+                  <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side" target="_blank" rel="noopener noreferrer">MDN Server-side</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Data Analyst</th>
+                <td>Python, SQL, Excel, Statistics, Data Visualization</td>
+                <td>
+                  <a href="https://www.freecodecamp.org/learn/data-analysis-with-python/" target="_blank" rel="noopener noreferrer">freeCodeCamp Data Analysis</a>,
+                  <a href="https://www.w3schools.com/python/" target="_blank" rel="noopener noreferrer">W3Schools Python</a>,
+                  <a href="https://www.w3schools.com/excel/" target="_blank" rel="noopener noreferrer">W3Schools Excel</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="card about-card">
+          <h2>About This Project</h2>
+          <p>
+            <strong>Student Skill Gap Analyzer</strong> helps undergraduate students bridge the gap between classroom coursework
+            and practical industry expectations. By matching self-assessed skills against five core competencies per role,
+            the tool calculates a transparent readiness score using <code>(Matched Skills &divide; Total Role Skills) &times; 100</code>
+            and highlights clear next steps for self-study.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-title">Student Skill Gap Analyzer</p>
+      <p class="footer-course">CSE326 Internet Programming Project</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
