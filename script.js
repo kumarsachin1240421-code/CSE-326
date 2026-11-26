@@ -89,3 +89,16 @@ function renderSkillTags(listId, skillsArray, tagClass, emptyText) {
 function resetAnalyzer() {
   resultCard.hidden = true;
 }
+
+// Toggle between Dark Mode and Light Mode when the navbar button is clicked
+const themeToggleBtn = document.getElementById("theme-toggle");
+themeToggleBtn.addEventListener("click", toggleTheme);
+
+function toggleTheme() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    themeToggleBtn.textContent = "Light Mode";
+  } else {
+    themeToggleBtn.textContent = "Dark Mode";
+  }
+}
