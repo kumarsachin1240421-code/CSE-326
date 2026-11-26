@@ -2,6 +2,8 @@
 
 A clean, responsive static web application built for the **CSE326 Internet Programming Project**. It helps students evaluate their current technical skills against entry-level industry expectations and identify what to learn next.
 
+website live link - <a href=https://kumarsachin1240421-code.github.io/CSE-326/>Student skill gap analyzer</a>
+
 ## Overview
 
 Students select a target career track (**Frontend Developer**, **Backend Developer**, or **Data Analyst**), tick the skills they already know, and immediately receive:
