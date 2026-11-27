@@ -2,7 +2,14 @@
 const roleSkills = {
   "Frontend Developer": ["HTML", "CSS", "JavaScript", "Responsive Design", "Git"],
   "Backend Developer": ["Node.js", "Python", "SQL", "REST APIs", "Git"],
-  "Data Analyst": ["Python", "SQL", "Excel", "Statistics", "Data Visualization"]
+  "Data Analyst": ["Python", "SQL", "Excel", "Statistics", "Data Visualization"],
+  "Full Stack Developer": ["HTML", "CSS", "JavaScript", "Node.js", "SQL"],
+  "Cybersecurity Analyst": ["Networking", "Linux", "Python", "Cybersecurity Basics", "SQL"],
+  "Cloud Engineer": ["Linux", "Networking", "Cloud Basics", "Docker", "Git"],
+  "DevOps Engineer": ["Linux", "Git", "Docker", "CI/CD", "Networking"],
+  "Machine Learning Engineer": ["Python", "Statistics", "Machine Learning", "SQL", "Data Visualization"],
+  "Mobile App Developer": ["JavaScript", "Responsive Design", "REST APIs", "UI/UX Design", "Git"],
+  "UI/UX Designer": ["HTML", "CSS", "Responsive Design", "UI/UX Design", "Figma"]
 };
 
 // Get references to the form, reset button, and result card elements
